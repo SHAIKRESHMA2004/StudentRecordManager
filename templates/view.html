@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>View Students</title>
+</head>
+<body>
+  <h2>Student Records</h2>
+
+  <!-- Search bar -->
+  <form method="GET" action="/view">
+    <input type="text" name="query" placeholder="Search by name, roll no, or course" value="{{ query or '' }}">
+    <button type="submit">Search</button>
+    {% if query %}
+      <a href="/view">Clear</a>
+    {% endif %}
+  </form>
+  <br>
+
+  {% if students %}
+    <table border="1" cellpadding="8">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Roll No</th>
+        <th>Course</th>
+        <th>Action</th>
+      </tr>
+      {% for student in students %}
+      <tr>
+        <td>{{ student[0] }}</td>
+        <td>{{ student[1] }}</td>
+        <td>{{ student[2] }}</td>
+        <td>{{ student[3] }}</td>
+        <td>
+          <a href="/edit/{{ student[0] }}">Edit</a> |
+          <a href="/delete/{{ student[0] }}">Delete</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+  {% else %}
+    <p>No students found.</p>
+  {% endif %}
+
+  <br>
+  <a href="/">Back to Home</a> | <a href="/add">Add New</a>
+</body>
+</html>
