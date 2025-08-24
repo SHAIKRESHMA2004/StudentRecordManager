@@ -33,9 +33,13 @@ A Flask-based web application to manage student records with authentication, CRU
    git clone https://github.com/SHAIKRESHMA2004/student-record-manager.git
    cd student-record-manager
 
-2. Install dependencies - pip install flask
+2. Install dependencies 
+   ```bash
+   pip install flask
 
-3. Run the app - python app.py
+3. Run the app 
+   ```bash
+   python app.py
 
 4. Open in browser: http://127.0.0.1:5000
 
